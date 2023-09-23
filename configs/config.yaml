@@ -1,0 +1,28 @@
+trainer:
+  name: Trainer
+  num_epochs: 100
+
+dataset:
+  name: Fcos_DataLoader
+  batch_size: 8
+  scale: 512
+  strides: [8, 16, 32, 64, 128]
+  limit_range: [[-1,64],[64,128],[128,256],[256,512],[512,999999]]
+  sample_radiu_ratio: 1.5
+
+model:
+  name: VoVNetV2_FCOS
+  num_classes: 2
+
+fcosloss:
+  name: Fcos_Loss
+#   alpha: 0.25
+#   gamma: 2.0
+
+optimizer:
+  name: Adam
+  lr: 1.e-3
+
+scheduler:
+  name: StepLR
+  step_size: 10
